@@ -12,7 +12,7 @@ sudo cp blocker.sh /usr/local/bin && sudo chmod +x /usr/local/bin/blocker.sh
 ```
 ## Optional
 
-if you want to ckeck the logs for dropped IP Addresses, consider creating new chain:
+if you want to check the logs for dropped IP Addresses, consider creating new chain:
 
 ```bash
 iptables -N block
@@ -26,9 +26,9 @@ iptables -A block -j DROP
 sudo blocker {block|unblock|list} IP_ADDRESS
 
 # values used in this script and meanings:
-# block: Get List of Blocked IP Addresses
-# unblock: Add the Given Address to iptables
-# list: Delete the Given ip Address from iptables block list
+# list: Get the List of Blocked IP Addresses
+# block: Add the Given Address to iptables block list
+# unblock: Delete the Given ip Address from iptables block list
 
 ```
 
