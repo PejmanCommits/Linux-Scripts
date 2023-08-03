@@ -8,10 +8,6 @@
 #: Run this script using sudo command.
 #: Usage: ./blocker.sh {block|unblock|list} IP_ADDRESS
 
-#: values used in this script and meanings:
-#:      block: Get List of Blocked IP Addresses
-#:      unblock: Add the Given Address to iptables
-#:      list: Delete the Given ip Address from iptables block list
 
 
 if [[ $(/usr/bin/id -u) -ne 0 ]]; then
