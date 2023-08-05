@@ -35,7 +35,7 @@ sudo blocker {block|unblock|list} IP_ADDRESS
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change or send an Email to:
-prezaeiw@gmail.com
+prezaei@gmx.com
 
 Please make sure to update tests as appropriate.
 
