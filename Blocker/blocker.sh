@@ -1,7 +1,7 @@
 #!/bin/bash
 #: Title : blocker
 #: Date : 2023-04-26
-#: Author : "Pejman Rezaei" <prezaeiw@gmail.com>
+#: Author : "Pejman Rezaei" <prezaei@gmx.com>
 #: Version : 1.0
 #: Description : Block and unBlock Given IP Addresses using iptables
 #: Options : None
