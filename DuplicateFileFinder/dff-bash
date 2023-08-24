@@ -1,0 +1,41 @@
+#: Title : dff (Bash Version)
+#: Date : 2023-08-24
+#: Author : "Pejman Rezaei" <prezaei@gmx.com>
+#: Version : 1.0
+#: Description : finds duplicate files recursively from the running path
+#: Options : None
+
+
+#!/bin/bash
+
+declare -A file_hashes
+
+# Recursively search for files and calculate their hashes
+find_files() {
+    find "$1" -type f -exec bash -c '
+        hash=$(md5sum "$1" | awk '\''{print $1}'\'')
+        echo "$hash|$1|$(du -h "$1" | cut -f1)"' bash {} \;
+}
+
+# Main script
+main() {
+    echo "Searching for duplicate files..."
+    find_files "." | while IFS='|' read -r hash file size; do
+        if [[ -n "${file_hashes[$hash]}" ]]; then
+            echo "Duplicate found: $file, Size: $size"
+            ((file_hashes[$hash]++))
+        else
+            file_hashes[$hash]=1
+        fi
+    done
+
+    echo -e "\nDuplicate Files:"
+    for hash in "${!file_hashes[@]}"; do
+        count="${file_hashes[$hash]}"
+        if [[ "$count" -gt 1 ]]; then
+            echo "Count: $count, Hash: $hash"
+        fi
+    done
+}
+
+main
